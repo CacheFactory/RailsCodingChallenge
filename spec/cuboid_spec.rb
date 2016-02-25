@@ -14,8 +14,8 @@ describe Cuboid do
       verticies = subject.vertices
       subject.move_to!(1,2,3)
       expect(subject.vertices).to_not eq(verticies)
-      expect(subject.vertices.first.x).to eq(1)
-      expect(subject.vertices.first.y).to eq(12)
+      expect(subject.vertices.first.x).to eq(11)
+      expect(subject.vertices.first.y).to eq(2)
       expect(subject.vertices.first.z).to eq(13)
     end
   end    

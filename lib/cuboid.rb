@@ -32,21 +32,22 @@ class Cuboid
     # | /     | /
     # c-------d
 
-    # x -
-    # y |
-    # z /
+    # y -
+    # z |
+    # x /
 
-    vertices.push Vertex.new(@x, @y + @height, @z + @length, :a)
-    vertices.push Vertex.new(@x + @width, @y + @height, @z + @length, :b)
+    vertices.push Vertex.new(@x + @length, @y , @z + @height, :a)
+    vertices.push Vertex.new(@x + @length, @y + @width, @z + @height, :b)
+    
+    vertices.push Vertex.new(@x + @length, @y, @z, :c)
+    vertices.push Vertex.new(@x + @length, @y + @width, @z, :d)
+    
+    vertices.push Vertex.new(@x, @y, @z + @height, :e)
+    vertices.push Vertex.new(@x, @y + @width, @z + @height, :f)
+    
+    vertices.push Vertex.new(@x, @y, @z, :g) # ORIGIN
+    vertices.push Vertex.new(@x, @y + @width, @z, :h)
 
-    vertices.push Vertex.new(@x, @y, @z + @length, :c)
-    vertices.push Vertex.new(@x + @width, @y, @z + @length, :d)
-
-    vertices.push Vertex.new(@x, @y + @height, @z, :e)
-    vertices.push Vertex.new(@x + @width, @y + @height, @z, :f)
-
-    vertices.push Vertex.new(@x, @y, @z, :g) # g ORIGIN
-    vertices.push Vertex.new(@x + @width, @y, @z, :h)
 
     @vertices = vertices
   end

@@ -1,15 +1,19 @@
 require 'cuboid'
-#    e-------f
-#   /|      /|
-#  / |     / |
-# a--|----b  |
-# |  g----|--h
-# | /     | /
-# c-------d
 
-# x -
-# y |
-# z /
+  # G == ORIGIN
+
+  #    e-------f
+  #   /|      /|
+  #  / |     / |
+  # a--|----b  |
+  # |  g----|--h
+  # | /     | /
+  # c-------d
+
+  # y -
+  # z |
+  # x /
+
 
 class Vertex
   attr_accessor :x, :y, :z, :point_position
@@ -30,21 +34,21 @@ class Vertex
   def inside_vertex?(vertex)
     case vertex.point_position
     when :a
-      @x >= vertex.x && @y <= vertex.y && @z <= vertex.z
+      @y >= vertex.y && @z <= vertex.z && @x <= vertex.x
     when :b
-      @x <= vertex.x && @y <= vertex.y && @z <= vertex.z
+      @y <= vertex.y && @z <= vertex.z && @x <= vertex.x
     when :c
-      @x >= vertex.x && @y >= vertex.y && @z <= vertex.z
+      @y >= vertex.y && @z >= vertex.z && @x <= vertex.x
     when :d
-      @x <= vertex.x && @y >= vertex.y && @z <= vertex.z
+      @y <= vertex.y && @z >= vertex.z && @x <= vertex.x
     when :e 
-      @x >= vertex.x && @y <= vertex.y && @z >= vertex.z
+      @y >= vertex.y && @z <= vertex.z && @x >= vertex.x
     when :f
-      @x <= vertex.x && @y <= vertex.y && @z >= vertex.z
+      @y <= vertex.y && @z <= vertex.z && @x >= vertex.x
     when :g
-      @x >= vertex.x && @y >= vertex.y && @z >= vertex.z
+      @y >= vertex.y && @z >= vertex.z && @x >= vertex.x
     when :h
-      @x <= vertex.x && @y >= vertex.y && @z >= vertex.z
+      @y <= vertex.y && @z >= vertex.z && @x >= vertex.x
     else
       false
     end
